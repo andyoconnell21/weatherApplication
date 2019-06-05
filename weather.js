@@ -17,5 +17,8 @@ function weather(){
 		let tempLink = x.data.properties.forecast
 		let y = await axios.get(tempLink)
         var temperature = y.data.properties.periods[0].temperature
-        return "The current temperature is " + temperature + "°"
+        var wind = y.data.properties.periods[0].windSpeed
+        var windDirection = y.data.properties.periods[0].windDirection
+        return "The current temperature is " + temperature + "°"  + "\n" + "with a wind speed of " + wind + "\n" + "in the " + windDirection + " direction"
 	}
+weather()
